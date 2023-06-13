@@ -1,54 +1,54 @@
-// node constructor
+// define Node class
 class Node {
-  constructor(data) {
-    this.data = data;
+  constructor(value) {
+    this.value = value;
     this.left = null;
     this.right = null;
   }
 }
 
-// tree constructor
+// define Tree class
 class Tree {
-  constructor(root) {
-    this.root = root;
+  constructor(sortedArray) {
+    this.root = this.buildTree(sortedArray);
+  }
+
+  // build the balanced binary tree
+  buildTree(sortedArray) {
+    if (sortedArray.length === 0) {
+      return null;
+    }
+
+    // get the middle element
+    let midIdx = Math.floor(sortedArray.length / 2);
+    let node = new Node(sortedArray[midIdx]);
+
+    // recursively build the left and right subtrees
+    node.left = this.buildTree(sortedArray.slice(0, midIdx));
+    node.right = this.buildTree(sortedArray.slice(midIdx + 1));
+
+    // return the root node
+    return node;
+  }
+
+  // print the tree
+  prettyPrint(node = this.root, prefix = "", isLeft = true) {
+    if (node === null) {
+      return;
+    }
+    if (node.right !== null) {
+      this.prettyPrint(
+        node.right,
+        `${prefix}${isLeft ? "│   " : "    "}`,
+        false
+      );
+    }
+    console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.value}`);
+    if (node.left !== null) {
+      this.prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
+    }
   }
 }
 
-// builds balanced binary tree, arr is sorted & without duplicated
-function buildTree(arr) {
-  if (arr.length === 0) {
-    return null;
-  }
-
-  // get the middle element
-  let midIdx = Math.floor(arr.length / 2);
-  let root = new Node(arr[midIdx]);
-
-  // recursively build the left and right subtrees
-  root.left = buildTree(arr.slice(0, midIdx));
-  root.right = buildTree(arr.slice(midIdx + 1));
-
-  // return the root node
-  return root;
-}
-
-// prints BST in a pretty way
-const prettyPrint = (node, prefix = "", isLeft = true) => {
-  if (node === null) {
-    return;
-  }
-  if (node.right !== null) {
-    prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
-  }
-  console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
-  if (node.left !== null) {
-    prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
-  }
-};
-
-let myArray = [1, 2, 3, 4, 5, 6, 7, 8];
-
-let myTree = buildTree(myArray);
-let myPrettyTree = prettyPrint(myTree);
-
-console.log(myPrettyTree);
+let tree = new Tree([1, 2, 3, 4, 6, 7, 8, 9, 10]);
+console.log(tree.root.left.left);
