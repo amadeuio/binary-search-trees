@@ -1,9 +1,9 @@
 // node constructor
 class Node {
-  constructor(data, left, right) {
+  constructor(data) {
     this.data = data;
-    this.left = left;
-    this.right = right;
+    this.left = null;
+    this.right = null;
   }
 }
 
@@ -14,6 +14,26 @@ class Tree {
   }
 }
 
-let myNode = new Node("hi", null, null);
+// builds balanced binary tree, arr is sorted & without duplicated
+function buildTree(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
 
-console.log(myNode);
+  // get the middle element
+  let midIdx = Math.floor(arr.length / 2);
+  let root = new Node(arr[midIdx]);
+
+  // Recursively build the left and right subtrees
+  root.left = buildTree(arr.slice(0, midIdx));
+  root.right = buildTree(arr.slice(midIdx + 1));
+
+  // Return the root node
+  return root;
+}
+
+let myArray = [1, 2, 3, 4];
+
+let myTree = new Tree(buildTree(myArray));
+
+console.log(myTree);
