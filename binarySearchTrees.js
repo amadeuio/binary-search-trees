@@ -24,16 +24,31 @@ function buildTree(arr) {
   let midIdx = Math.floor(arr.length / 2);
   let root = new Node(arr[midIdx]);
 
-  // Recursively build the left and right subtrees
+  // recursively build the left and right subtrees
   root.left = buildTree(arr.slice(0, midIdx));
   root.right = buildTree(arr.slice(midIdx + 1));
 
-  // Return the root node
+  // return the root node
   return root;
 }
 
-let myArray = [1, 2, 3, 4];
+// prints BST in a pretty way
+const prettyPrint = (node, prefix = "", isLeft = true) => {
+  if (node === null) {
+    return;
+  }
+  if (node.right !== null) {
+    prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
+  }
+  console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
+  if (node.left !== null) {
+    prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
+  }
+};
 
-let myTree = new Tree(buildTree(myArray));
+let myArray = [1, 2, 3, 4, 5, 6, 7, 8];
 
-console.log(myTree);
+let myTree = buildTree(myArray);
+let myPrettyTree = prettyPrint(myTree);
+
+console.log(myPrettyTree);
