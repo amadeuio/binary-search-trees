@@ -54,7 +54,7 @@ class Tree {
     // if there is no tree, create a root node
     if (this.root === null) {
       this.root = new Node(value);
-      // if there is, call insertNode
+      // if there is, call insertNode on the tree's root node
     } else {
       this.insertNode(this.root, value);
     }
@@ -77,6 +77,59 @@ class Tree {
         this.insertNode(node.right, value);
       }
     }
+  }
+
+  delete(value) {
+    this.root = this.deleteNode(this.root, value);
+  }
+
+  deleteNode(node, value) {
+    if (node === null) {
+      // value not found in tree
+      return null;
+    }
+
+    if (value < node.value) {
+      // value is less than node's value, go left
+      node.left = this.deleteNode(node.left, value);
+      return node;
+    } else if (value > node.value) {
+      // value is more than node's value, go right
+      node.right = this.deleteNode(node.right, value);
+      return node;
+    } else {
+      // value is equal to node's value, this is the node to be deleted
+
+      // node with no child or one child
+      if (node.left === null) {
+        return node.right;
+      } else if (node.right === null) {
+        return node.left;
+      }
+
+      // node with two children: we'll need to replace the node for it's in-order predecessor
+      // get the in-order predecessor (maximum value in the left subtree)
+      let tempNode = this.getMaxValueNode(node.left);
+
+      // replace the current node to be deleted with the in-order predecessor
+      node.value = tempNode.value;
+
+      // delete the duplicate in-order predecessor from it's original position (the left subtree)
+      node.left = this.deleteNode(node.left, tempNode.value);
+
+      return node;
+    }
+  }
+
+  // returns the maximum value of the tree starting from a given node
+  getMaxValueNode(node) {
+    // since it's a BTS, the maximum value will be found by navigating to the right
+    while (node && node.right !== null) {
+      node = node.right;
+    }
+
+    // return that child
+    return node;
   }
 }
 
@@ -106,4 +159,5 @@ myExampleTree = {
 };
 
 let tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+tree.delete(6);
 tree.prettyPrint();
