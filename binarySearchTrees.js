@@ -126,7 +126,7 @@ class Tree {
   // returns the maximum value of the tree starting from a given node
   getMaxValueNode(node) {
     // since it's a BTS, the maximum value will be found by navigating to the right
-    // until there is not any right node
+    // until there are no right children
     while (node && node.right !== null) {
       node = node.right;
     }
