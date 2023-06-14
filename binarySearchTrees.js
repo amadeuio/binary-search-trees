@@ -49,24 +49,34 @@ class Tree {
     }
   }
 
-  // insert an element
-  insert(node, value) {
-    // base case, we've hit a leaf node
-    if (node === null) {
-      return new Node(value);
+  // insert a value
+  insert(value) {
+    // if there is no tree, create a root node
+    if (this.root === null) {
+      this.root = new Node(value);
+      // if there is, call insertNode
+    } else {
+      this.insertNode(this.root, value);
     }
+  }
 
-    // recursive case
+  // insert a value at a node
+  insertNode(node, value) {
     if (value < node.value) {
-      // move to left subtree
-      node.left = this.insert(node.left, value);
-    } else if (value > node.value) {
-      // move to right subtree
-      node.right = this.insert(node.right, value);
+      // if value is less than node's value, go left
+      if (node.left === null) {
+        node.left = new Node(value);
+      } else {
+        this.insertNode(node.left, value);
+      }
+    } else {
+      // if value is more than node's value, go right
+      if (node.right === null) {
+        node.right = new Node(value);
+      } else {
+        this.insertNode(node.right, value);
+      }
     }
-
-    // return the (potentially modified) node
-    return node;
   }
 }
 
@@ -95,6 +105,5 @@ myExampleTree = {
   },
 };
 
-let tree = new Tree([1, 2, 3, 4, 5]);
-tree.insert(tree.root, 8);
+let tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 tree.prettyPrint();
