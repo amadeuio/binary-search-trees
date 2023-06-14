@@ -101,13 +101,15 @@ class Tree {
       // value is equal to node's value, this is the node to be deleted
 
       // node with no child or one child
+      // if it has no child: replace it for null (effectivey deleting it)
+      // it has one child: replace it for that child
       if (node.left === null) {
         return node.right;
       } else if (node.right === null) {
         return node.left;
       }
 
-      // node with two children: we'll need to replace the node for it's in-order predecessor
+      // node with two children: we need to replace the node for it's in-order predecessor
       // get the in-order predecessor (maximum value in the left subtree)
       let tempNode = this.getMaxValueNode(node.left);
 
@@ -124,11 +126,12 @@ class Tree {
   // returns the maximum value of the tree starting from a given node
   getMaxValueNode(node) {
     // since it's a BTS, the maximum value will be found by navigating to the right
+    // until there is not any right node
     while (node && node.right !== null) {
       node = node.right;
     }
 
-    // return that child
+    // return that node
     return node;
   }
 }
