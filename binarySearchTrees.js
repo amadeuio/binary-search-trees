@@ -79,16 +79,19 @@ class Tree {
     }
   }
 
+  // delete a value starting from root (in all the tree)
   delete(value) {
     this.root = this.deleteNode(this.root, value);
   }
 
+  // delete a value starting from a node
   deleteNode(node, value) {
     if (node === null) {
       // value not found in tree
       return null;
     }
 
+    // navigate through the tree until the value is found
     if (value < node.value) {
       // value is less than node's value, go left
       node.left = this.deleteNode(node.left, value);
@@ -134,6 +137,24 @@ class Tree {
     // return that node
     return node;
   }
+
+  find(value, node = this.root) {
+    // tree is empty or the node is not found
+    if (node === null) {
+      return null;
+    }
+
+    if (value < node.value) {
+      // if the value is less than the node's value, navigate to the left subtree
+      return this.find(value, node.left);
+    } else if (value > node.value) {
+      // if the value is more than the node's value, navigate to the right subtree
+      return this.find(value, node.right);
+    } else {
+      // if this else block is executed, it means we found the node. return
+      return node;
+    }
+  }
 }
 
 // for visualisation purposes
@@ -162,5 +183,5 @@ myExampleTree = {
 };
 
 let tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-tree.delete(6);
-tree.prettyPrint();
+console.log(tree.find(2));
+//tree.prettyPrint();
