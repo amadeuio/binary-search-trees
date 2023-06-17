@@ -174,8 +174,10 @@ class Tree {
 
       // process node variable
       if (fn) {
+        // pass each node to the provided function, if it exists
         fn(node.value);
       } else {
+        // append each node to resut array if no function is provided
         result.push(node.value);
       }
 
@@ -188,7 +190,10 @@ class Tree {
       }
     }
 
-    if (!fn) return result;
+    // return result array only if no function is provided
+    if (!fn) {
+      return result;
+    }
   }
 }
 
@@ -217,10 +222,11 @@ myExampleTree = {
   },
 };
 
+// example function for levelOrder method
 function print(node) {
   console.log(node);
 }
 
 let tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 //tree.prettyPrint();
-console.log(tree.levelOrder());
+tree.levelOrder(print);
