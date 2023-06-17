@@ -158,7 +158,7 @@ class Tree {
     }
   }
 
-  // visit the tree in breadthFirstTraversal and process every node in function fn
+  // visit the tree in breadth-first traversal and process every node in function fn
   levelOrder(fn) {
     if (!this.root) {
       return;
@@ -195,6 +195,37 @@ class Tree {
       return result;
     }
   }
+
+  // depth-first traversal: inorder (left, current, right)
+  inorder(fn) {
+    let result = [];
+
+    const inorderTraverse = (node) => {
+      // base case
+      if (node === null) {
+        return;
+      }
+
+      // navigate left
+      inorderTraverse(node.left);
+
+      // process result
+      if (fn) {
+        fn(node);
+      } else {
+        result.push(node.value);
+      }
+
+      // navigate right
+      inorderTraverse(node.right);
+    };
+
+    // call traverse starting from root
+    inorderTraverse(this.root);
+
+    // return result array
+    return result;
+  }
 }
 
 // for visualisation purposes
@@ -228,5 +259,4 @@ function print(node) {
 }
 
 let tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-//tree.prettyPrint();
-tree.levelOrder(print);
+tree.inorder(print);
