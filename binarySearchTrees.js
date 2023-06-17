@@ -138,6 +138,8 @@ class Tree {
     return node;
   }
 
+  // finds the node containing a value
+  // node = this.root uses  the feature 'default parameters'
   find(value, node = this.root) {
     // tree is empty or the node is not found
     if (node === null) {
@@ -154,6 +156,39 @@ class Tree {
       // if this else block is executed, it means we found the node. return
       return node;
     }
+  }
+
+  // visit the tree in breadthFirstTraversal and process every node in function fn
+  levelOrder(fn) {
+    if (!this.root) {
+      return;
+    }
+
+    let queue = [];
+    let result = [];
+    queue.push(this.root);
+
+    while (queue.length > 0) {
+      // remove first element of que and store in node variable (fifo)
+      let node = queue.shift();
+
+      // process node variable
+      if (fn) {
+        fn(node.value);
+      } else {
+        result.push(node.value);
+      }
+
+      // add the left and right children to the queue, if they exist
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
+    }
+
+    if (!fn) return result;
   }
 }
 
@@ -182,6 +217,10 @@ myExampleTree = {
   },
 };
 
+function print(node) {
+  console.log(node);
+}
+
 let tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-console.log(tree.find(2));
 //tree.prettyPrint();
+console.log(tree.levelOrder());
