@@ -196,7 +196,7 @@ class Tree {
     }
   }
 
-  // depth-first traversal: inorder (left, current, right)
+  // depth-first: inorder traversal (left, current, right)
   inorder(fn) {
     let result = [];
 
@@ -222,6 +222,68 @@ class Tree {
 
     // call traverse starting from root
     inorderTraverse(this.root);
+
+    // return result array
+    return result;
+  }
+
+  // depth-first: preorder traversal (current, left, right)
+  preorder(fn) {
+    let result = [];
+
+    const preorderTraverse = (node) => {
+      // base case
+      if (node === null) {
+        return;
+      }
+
+      // process current node
+      if (fn) {
+        fn(node);
+      } else {
+        result.push(node.value);
+      }
+
+      // navigate left
+      preorderTraverse(node.left);
+
+      // navigate right
+      preorderTraverse(node.right);
+    };
+
+    // call traverse starting from root
+    preorderTraverse(this.root);
+
+    // return result array
+    return result;
+  }
+
+  // depth-first: postorder traversal (left, right, current)
+  postorder(fn) {
+    let result = [];
+
+    const postorderTraverse = (node) => {
+      // base case
+      if (node === null) {
+        return;
+      }
+
+      // navigate left
+      postorderTraverse(node.left);
+
+      // navigate right
+      postorderTraverse(node.right);
+
+      // process current node
+      if (fn) {
+        fn(node);
+      } else {
+        result.push(node.value);
+      }
+    };
+
+    // call traverse starting from root
+    postorderTraverse(this.root);
 
     // return result array
     return result;
@@ -253,10 +315,10 @@ myExampleTree = {
   },
 };
 
-// example function for levelOrder method
+// example function that prints every node
 function print(node) {
-  console.log(node);
+  console.log(node.value);
 }
 
 let tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-tree.inorder(print);
+tree.postorder(print);
