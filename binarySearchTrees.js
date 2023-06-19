@@ -200,6 +200,7 @@ class Tree {
   inorder(fn) {
     let result = [];
 
+    // visit the tree in inorder traversal starting from 'node'
     const inorderTraverse = (node) => {
       // base case
       if (node === null) {
@@ -288,6 +289,21 @@ class Tree {
     // return result array
     return result;
   }
+
+  // return the height starting from a given node
+  height(node = this.root) {
+    // if the node is null, return -1 (as we are counting the number of edges)
+    if (node === null) {
+      return -1;
+    }
+
+    // compute the height of each subtree
+    let leftHeight = this.height(node.left);
+    let rightHeight = this.height(node.right);
+
+    // return the greater height of the two subtrees, and add 1 for the current node
+    return Math.max(leftHeight, rightHeight) + 1;
+  }
 }
 
 // for visualisation purposes
@@ -321,4 +337,5 @@ function print(node) {
 }
 
 let tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-tree.postorder(print);
+tree.prettyPrint();
+console.log(tree.height());
