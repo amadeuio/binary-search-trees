@@ -290,7 +290,8 @@ class Tree {
     return result;
   }
 
-  // return the height starting from a given node
+  // returns the height starting from a given node
+  // defined as the number of edges (steps) in longest path from a given node to a leaf node
   height(node = this.root) {
     // if the node is null, return -1 (as we are counting the number of edges)
     if (node === null) {
@@ -303,6 +304,22 @@ class Tree {
 
     // return the greater height of the two subtrees, and add 1 for the current node
     return Math.max(leftHeight, rightHeight) + 1;
+  }
+
+  // finds the number of edges between a node and the root
+  depth(root, node) {
+    if (root === null || root === node) {
+      // base case: either the root is null or we've found the desired node
+      return 0;
+    }
+
+    if (node.value < root.value) {
+      // the desired node is in the left subtree
+      return 1 + this.depth(root.left, node);
+    } else {
+      // the desired node is in the right subtree
+      return 1 + this.depth(root.right, node);
+    }
   }
 }
 
@@ -338,4 +355,5 @@ function print(node) {
 
 let tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 tree.prettyPrint();
-console.log(tree.height());
+
+console.log(tree.depth(tree.root, tree.find(3)));
