@@ -13,7 +13,7 @@ class Tree {
     this.root = this.buildTree(sortedArray);
   }
 
-  // build the balanced binary tree
+  // build the balanced binary tree from a sorted array
   buildTree(sortedArray) {
     if (sortedArray.length === 0) {
       return null;
@@ -159,6 +159,7 @@ class Tree {
   }
 
   // visit the tree in breadth-first traversal and process every node in function fn
+  // if no function provided, return an array
   levelOrder(fn) {
     if (!this.root) {
       return;
@@ -197,6 +198,7 @@ class Tree {
   }
 
   // depth-first: inorder traversal (left, current, right)
+  // if no function provided, return an array
   inorder(fn) {
     let result = [];
 
@@ -338,6 +340,17 @@ class Tree {
     // recursively navigate the tree and check if balanced
     return this.isBalanced(node.left) && this.isBalanced(node.right);
   }
+
+  // rebalance an unbalanced tree
+  rebalance() {
+    // reminder 1: inorder traversal of the BST gives the values of the nodes in sorted order
+    // reminder 2: if inorder is called without a function as argument, it returns an array
+    // perform inorder traversal
+    const sortedArray = this.inorder();
+
+    // rebuild the tree using the sorted array
+    this.root = this.buildTree(sortedArray);
+  }
 }
 
 // for visualisation purposes
@@ -372,6 +385,15 @@ function print(node) {
 
 let tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
-tree.prettyPrint();
+// unbalance tree
+tree.delete(4);
+tree.delete(5);
 
+tree.prettyPrint();
+console.log(tree.isBalanced());
+
+// rebalance it
+tree.rebalance();
+
+tree.prettyPrint();
 console.log(tree.isBalanced());
