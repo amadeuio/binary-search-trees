@@ -335,7 +335,7 @@ class Tree {
       return false;
     }
 
-    // recursively check if both the left and right subtrees are balanced
+    // recursively navigate the tree and check if balanced
     return this.isBalanced(node.left) && this.isBalanced(node.right);
   }
 }
