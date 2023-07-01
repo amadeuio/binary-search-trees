@@ -345,10 +345,10 @@ class Tree {
   rebalance() {
     // reminder 1: inorder traversal of the BST gives the values of the nodes in sorted order
     // reminder 2: if inorder is called without a function as argument, it returns an array
-    // perform inorder traversal
+    // perform inorder traversal and assign sorted array to constant
     const sortedArray = this.inorder();
 
-    // rebuild the tree using the sorted array
+    // simply rebuild the tree using the sorted array
     this.root = this.buildTree(sortedArray);
   }
 }
