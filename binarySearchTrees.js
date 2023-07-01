@@ -306,13 +306,14 @@ class Tree {
     return Math.max(leftHeight, rightHeight) + 1;
   }
 
-  // finds the number of edges between a node and the root
+  // finds the number of edges (distance) between a node and the root
   depth(root, node) {
     if (root === null || root === node) {
       // base case: either the root is null or we've found the desired node
       return 0;
     }
 
+    // we navigate the tree, and at each step we add +1 to depth
     if (node.value < root.value) {
       // the desired node is in the left subtree
       return 1 + this.depth(root.left, node);
@@ -320,6 +321,22 @@ class Tree {
       // the desired node is in the right subtree
       return 1 + this.depth(root.right, node);
     }
+  }
+
+  // checks if tree is balanced
+  isBalanced(node = this.root) {
+    // base case: an empty subtree is balanced
+    if (node === null) {
+      return true;
+    }
+
+    // check if the heights of the left and right subtrees differ by more than 1
+    if (Math.abs(this.height(node.left) - this.height(node.right)) > 1) {
+      return false;
+    }
+
+    // recursively check if both the left and right subtrees are balanced
+    return this.isBalanced(node.left) && this.isBalanced(node.right);
   }
 }
 
@@ -354,6 +371,7 @@ function print(node) {
 }
 
 let tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
 tree.prettyPrint();
 
-console.log(tree.depth(tree.root, tree.find(3)));
+console.log(tree.isBalanced());
