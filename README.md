@@ -8,53 +8,29 @@ Eight project of the JavaScript chapter in [The Odin Project](https://www.theodi
 
 ### Methods 🔧
 
-#### `buildTree(sortedArray)`
+```buildTree()``` Builds the tree from a sorted array
 
-Builds the tree from a sorted array
+`prettyPrint()` Prints the tree in a visually appealing format
 
-#### `prettyPrint()`
+`insert(value)` Inserts a value into the BST
 
-Prints the tree in a visually appealing format
+`delete(value)` Deletes a value from the BST
 
-#### `insert(value)`
+`find(value)` Finds and returns the node containing the given value in the BST
 
-Inserts a value into the BST
+`levelOrder()` Performs a breadth-first traversal and calls the function passed as argument with each node as it's argument
 
-#### `delete(value)`
+`inorder()` Performs an in-order traversal and calls the function passed as argument with each node as it's argument
 
-Deletes a value from the BST
+`preorder()` Performs a pre-order traversal and calls the function passed as argument with each node as it's argument
 
-#### `find(value)`
+`postorder()` Performs a post-order traversal and calls the function passed as argument with each node as it's argument
 
-Finds and returns the node containing the given value in the BST
+`height()` Returns the height, defined as the maximum number of edges in the longest path from the root to a leaf node
 
-#### `levelOrder()`
+`isBalanced()` Checks if the BST is balanced, i.e., the heights of the left and right subtrees differ by at most 1
 
-Performs a breadth-first traversal of the BST and returns an array containing the values of the nodes in level order.
-
-#### `inorder()`
-
-Performs an in-order traversal of the BST and returns an array containing the values of the nodes in in-order.
-
-#### `preorder()`
-
-Performs a pre-order traversal of the BST and returns an array containing the values of the nodes in pre-order.
-
-#### `postorder()`
-
-Performs a post-order traversal of the BST and returns an array containing the values of the nodes in post-order.
-
-#### `height()`
-
-Returns the height of the BST, which is the maximum number of edges in the longest path from the root to a leaf node.
-
-#### `isBalanced()`
-
-Checks if the BST is balanced, i.e., the heights of the left and right subtrees differ by at most 1.
-
-#### `rebalance()`
-
-Rebalances an unbalanced BST by reconstructing it with a new balanced structure.
+`rebalance()` Rebalances an unbalanced BST by reconstructing it with a new balanced structure
 
 ### Built With 🛠️
 
