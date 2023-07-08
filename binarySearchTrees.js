@@ -353,31 +353,6 @@ class Tree {
   }
 }
 
-// for visualisation purposes
-myExampleTree = {
-  root: {
-    value: 3,
-    left: {
-      value: 2,
-      left: {
-        value: 1,
-        left: null,
-        right: null,
-      },
-      right: null,
-    },
-    right: {
-      value: 5,
-      left: {
-        value: 4,
-        left: null,
-        right: null,
-      },
-      right: null,
-    },
-  },
-};
-
 // function that prints every node
 function print(node) {
   console.log(node.value);
