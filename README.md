@@ -2,9 +2,9 @@
 
 ### About 📖
 
-Binary search trees are a data structure that allow for efficient search, insertion, and deletion operations.
+Binary search trees are a data structure that allow for efficient search, insertion, and deletion operations
 
-Eight project of the JavaScript chapter in [The Odin Project](https://www.theodinproject.com).
+Eight project of the JavaScript chapter in [The Odin Project](https://www.theodinproject.com)
 
 ### Methods 🔧
 
@@ -26,11 +26,11 @@ Eight project of the JavaScript chapter in [The Odin Project](https://www.theodi
 
 `postorder()` Performs a post-order traversal and calls the function passed as argument with each node as it's argument
 
-`height()` Returns the height, defined as the maximum number of edges in the longest path from the root to a leaf node
+`height()` Returns the height
 
-`isBalanced()` Checks if the BST is balanced, i.e., the heights of the left and right subtrees differ by at most 1
+`isBalanced()` Checks if the BST is balanced
 
-`rebalance()` Rebalances an unbalanced BST by reconstructing it with a new balanced structure
+`rebalance()` Rebalances an unbalanced BST
 
 ### Built With 🛠️
 
