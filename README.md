@@ -1,14 +1,14 @@
-# BSTs 🌳
+# Binary Search Trees 🌳
 
 ### About 📖
 
-BSTs are a data structure that allow for efficient search, insertion, and deletion operations.
+Binary search trees are a data structure that allow for efficient search, insertion, and deletion operations.
 
 Eight project of the JavaScript chapter in [The Odin Project](https://www.theodinproject.com).
 
 ### Methods 🔧
 
-```buildTree()``` Builds the tree from a sorted array
+`buildTree()` Builds the tree from a sorted array
 
 `prettyPrint()` Prints the tree in a visually appealing format
 
