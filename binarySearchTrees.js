@@ -360,7 +360,7 @@ function print(node) {
 
 // import mergeSort & getRandomArray functions (Node.js environment)
 ("use strict");
-const { mergeSort, getRandomArray } = require("./arraySortUtils.js");
+const { mergeSort, getRandomArray } = require("./utils/arraySortUtils.js");
 
 // example tree
 
