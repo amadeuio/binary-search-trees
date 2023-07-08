@@ -176,7 +176,7 @@ class Tree {
       // process node variable
       if (fn) {
         // pass each node to the provided function, if it exists
-        fn(node.value);
+        fn(node);
       } else {
         // append each node to resut array if no function is provided
         result.push(node.value);
@@ -364,7 +364,51 @@ const { mergeSort, getRandomArray } = require("./arraySortUtils.js");
 
 // example tree
 
-// create a binary search tree from an array of random numbers
-let arr = getRandomArray(30);
-let sortedArray = mergeSort(arr);
-console.log(sortedArray);
+// 1. create a BST from an array of random numbers
+let myRandomArray = getRandomArray(5);
+let mySortedArray = mergeSort(myRandomArray);
+let tree = new Tree(mySortedArray);
+tree.prettyPrint();
+
+// 2. confirm the tree is balanced
+console.log(`Is it balanced: ${tree.isBalanced()}`); // true
+
+// 3. print out all elements in level, pre, post, and in order
+console.log(`Level order traversal:`);
+tree.levelOrder(print);
+
+console.log(`Inorder traversal: `);
+tree.inorder(print);
+
+console.log(`Preorder traversal: `);
+tree.preorder(print);
+
+console.log(`Postorder traversal: `);
+tree.postorder(print);
+
+// 4. unbalace the tree by adding several numbers
+tree.insert(34);
+tree.insert(1);
+tree.insert(68);
+
+// 5. confirm the tree is unbalanced
+console.log(`Is it balanced: ${tree.isBalanced()}`); // false
+
+// 6. balance the tree by calling rebalance
+tree.rebalance();
+
+// 7. confirm the tree is balanced
+console.log(`Is it balanced: ${tree.isBalanced()}`); // true
+
+// 8. print out all elements in level, pre, post, and in order
+console.log(`Level order traversal:`);
+tree.levelOrder(print);
+
+console.log(`Inorder traversal: `);
+tree.inorder(print);
+
+console.log(`Preorder traversal: `);
+tree.preorder(print);
+
+console.log(`Postorder traversal: `);
+tree.postorder(print);
