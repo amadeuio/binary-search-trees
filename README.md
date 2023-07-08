@@ -2,7 +2,7 @@
 
 ### About 📖
 
-Binary search trees are a data structure that allow for efficient search, insertion, and deletion operations.
+Binary search trees are a data structure that allow for efficient search, insertion, and deletion. When balanced, they have a time complexity of `O(logn)` for these operations, which is way better than the one of a regular list `O(n)`.
 
 Eight project of the JavaScript chapter in [The Odin Project](https://www.theodinproject.com).
 
