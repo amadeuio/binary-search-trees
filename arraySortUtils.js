@@ -1,4 +1,17 @@
-// recursive merge sort methodology
+// array generation & sorting utilities module
+
+// creates an array of n random numbers between 0 and 100
+function getRandomArray(n) {
+  var randomArray = [];
+  for (let i = 0; i < n; i++) {
+    let randomNumber = Math.floor(Math.random() * 100) + 1;
+    randomArray.push(randomNumber);
+  }
+
+  return randomArray;
+}
+
+// sorts an array of numbers using recursive merge sort
 function mergeSort(arr) {
   // base case
   if (arr.length <= 1) {
@@ -18,7 +31,8 @@ function mergeSort(arr) {
   return merge(left, right);
 }
 
-// merges two sorted arrays (left and right) into a single sorted array
+// helper function for mergeSort: merges two sorted arrays (left and right)
+// into a single sorted array
 function merge(left, right) {
   let resultArray = [],
     leftIndex = 0,
@@ -41,4 +55,4 @@ function merge(left, right) {
     .concat(right.slice(rightIndex));
 }
 
-module.exports = mergeSort;
+module.exports = { mergeSort, getRandomArray };

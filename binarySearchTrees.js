@@ -353,10 +353,6 @@ class Tree {
   }
 }
 
-// import mergeSort function for Node.js environment
-("use strict");
-const mergeSort = require("./mergeSortModule.js");
-
 // for visualisation purposes
 myExampleTree = {
   root: {
@@ -387,20 +383,13 @@ function print(node) {
   console.log(node.value);
 }
 
-// function that creates an array of n random numbers between 0 and 100
-function randomNumbers(n) {
-  var randomNumberArray = [];
-  for (let i = 0; i < n; i++) {
-    let randomNumber = Math.floor(Math.random() * 100) + 1;
-    randomNumberArray.push(randomNumber);
-  }
-
-  return randomNumberArray;
-}
+// import mergeSort & getRandomArray functions (Node.js environment)
+("use strict");
+const { mergeSort, getRandomArray } = require("./arraySortUtils.js");
 
 // example tree
 
 // create a binary search tree from an array of random numbers
-let arr = randomNumbers(30);
-let tree = new Tree(randomNumbers(30));
-//let tree = new Tree([randomNumbers(30)]);
+let arr = getRandomArray(30);
+let sortedArray = mergeSort(arr);
+console.log(sortedArray);
