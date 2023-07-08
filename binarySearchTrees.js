@@ -378,22 +378,23 @@ myExampleTree = {
   },
 };
 
-// example function that prints every node
+// function that prints every node
 function print(node) {
   console.log(node.value);
 }
 
+// example tree
 let tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
-// unbalance tree
-tree.delete(4);
-tree.delete(5);
+// function that creates an array of n random numbers
+function randomNumbers(n) {
+  var randomNumberArray = [];
+  for (let i = 0; i < n; i++) {
+    let randomNumber = Math.floor(Math.random() * 100) + 1;
+    randomNumberArray.push(randomNumber);
+  }
 
-tree.prettyPrint();
-console.log(tree.isBalanced());
+  return randomNumberArray;
+}
 
-// rebalance it
-tree.rebalance();
-
-tree.prettyPrint();
-console.log(tree.isBalanced());
+console.log(randomNumbers(30));
