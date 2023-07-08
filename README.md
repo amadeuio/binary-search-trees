@@ -12,11 +12,11 @@ Eight project of the JavaScript chapter in [The Odin Project](https://www.theodi
 
 - 🌿 `prettyPrint()`: Prints the tree in a visually appealing format.
 
-- ➕ `insert(value)`: Inserts a value into the BST.
+- ➕ `insert(value)`: Inserts a value.
 
-- ➖ `delete(value)`: Deletes a value from the BST.
+- ➖ `delete(value)`: Deletes a value.
 
-- 🔍 `find(value)`: Finds and returns the node containing the given value in the BST.
+- 🔍 `find(value)`: Finds and returns the node containing the given value.
 
 - 🌐 `levelOrder()`: Performs a breadth-first traversal and calls the function passed as an argument with each node as its argument.
 
