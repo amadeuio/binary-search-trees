@@ -1,5 +1,5 @@
 ![languages](https://img.shields.io/badge/languages-js-F7DF1E)
-[![course](https://img.shields.io/badge/from-the_odin_project-d19900)](https://www.theodinproject.com/lessons/javascript-binary-search-trees)
+[![course](https://img.shields.io/badge/course-the_odin_project-d19900)](https://www.theodinproject.com/lessons/javascript-binary-search-trees)
 ![license](https://img.shields.io/badge/license-MIT-blue)
 
 # Binary Search Trees 🌳
@@ -7,8 +7,6 @@
 ### About 📖
 
 Binary search trees are a data structure that allow for efficient search, insertion, and deletion. When the tree is balanced, these operations have a time complexity of `O(logn)`, which is way better than the one of a regular list `O(n)`.
-
-Eight project of the JavaScript chapter in [The Odin Project](https://www.theodinproject.com).
 
 ### Methods 🔧
 
