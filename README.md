@@ -16,9 +16,7 @@ It also provides the ability to create a list of length `n` of random numbers `>
 
 ### Challenges 😅
 
-Wrapping my head around the exact step-by-step process of recursive methods.
-
-Getting familiar with creating and utilizing class constructors in JavaScript.
+Wrapping my head around the exact step-by-step process of recursive methods and gaining familiarity with creating and utilizing class constructors in JavaScript.
 
 ### Methods 🔧
 
