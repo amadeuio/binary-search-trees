@@ -367,7 +367,7 @@ const { mergeSort, getRandomArray } = require("./utils/arraySortUtils.js");
 // 1. create a BST from an array of random numbers
 let myRandomArray = getRandomArray(5);
 let mySortedArray = mergeSort(myRandomArray);
-let tree = new Tree(mySortedArray);
+let treee = new Tree(mySortedArray);
 tree.prettyPrint();
 
 // 2. confirm the tree is balanced
