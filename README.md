@@ -12,7 +12,7 @@ Binary search trees (BST) are a data structure that allow for efficient search, 
 
 This application features an object constructor that creates BST's from a sorted array of numbers, and it includes a bunch of methods to modify & provide information about the tree.
 
-It also provides the ability to create a list of length `n` of random numbers `> 0` & `< 100` and an array sorting utility that utilises an efficient merge sort algorithm (as developed on my [previous project](https://github.com/nightrunner4/recursion)) to create constructor ready arrays.
+It also provides the ability to create a list of length `n` of random numbers `> 0` & `< 100` and an array sorting utility that utilises an efficient merge sort algorithm (as developed on my [previous project](https://github.com/nightrunner4/recursion-merge-sort)) to create constructor ready arrays.
 
 ### Challenges 😅
 
@@ -46,23 +46,23 @@ Wrapping my head around the exact step-by-step process of recursive methods and 
 
 ### Usage 🖊️
 
-* Create a tree from a simple sorted array
+- Create a tree from a simple sorted array
 
 `let tree = new Tree([1, 3, 4, 5, 8])`
 
-* If we `console.log(tree)` it looks like this
+- If we `console.log(tree)` it looks like this
 
-``` 
+```
 Tree {
   root: Node {
     value: 4,
     left: Node { value: 3, left: [Node], right: null },
     right: Node { value: 8, left: [Node], right: null }
   }
-} 
+}
 ```
 
-* We can use `tree.prettyPrint()` for a more intuitive representation
+- We can use `tree.prettyPrint()` for a more intuitive representation
 
 ```
 │   ┌── 8
@@ -72,30 +72,30 @@ Tree {
         └── 1
 ```
 
-* Let's check if the tree is balanced
+- Let's check if the tree is balanced
 
 `console.log(tree.isBalanced()) // true`
 
-* Let's print each value in level order traversal (📝 Note: The traversal functions pass each item as an argument to the function they receive, in this case, `print` just logs the item)
+- Let's print each value in level order traversal (📝 Note: The traversal functions pass each item as an argument to the function they receive, in this case, `print` just logs the item)
 
 `tree.levelOrder(print) // 4, 3, 8, 1, 5`
 
-* Let's print each value in inorder traversal
+- Let's print each value in inorder traversal
 
 `tree.inorder(print) // 1, 3, 4, 5, 6`
 
-* Let's find the height of the tree
+- Let's find the height of the tree
 
 `console.log(tree.height()) // 2`
 
-* Let's delete two nodes
+- Let's delete two nodes
 
 ```
 tree.delete(1)
 tree.delete(4)
 ```
 
-* Use `tree.prettyPrint()` again
+- Use `tree.prettyPrint()` again
 
 ```
 │   ┌── 8
@@ -103,24 +103,14 @@ tree.delete(4)
 └── 3
 ```
 
-* Is the tree balanced now? (📝 Spoiler: When you delete or add nodes from a balanced BST, the tree's balance can be disturbed due to subsequent restructuring)
+- Is the tree balanced now? (📝 Spoiler: When you delete or add nodes from a balanced BST, the tree's balance can be disturbed due to subsequent restructuring)
 
 `console.log(tree.isBalanced()) // false`
 
-* Let's rebalance the tree
+- Let's rebalance the tree
 
 `tree.rebalance()`
 
-* Let's check if it's balanced again
+- Let's check if it's balanced again
 
 `console.log(tree.isBalanced()) // true`
-
-
-
-
-
-
-
-
-
-
