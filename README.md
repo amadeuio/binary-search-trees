@@ -8,6 +8,8 @@
 
 Binary search trees (BST) are a data structure that allow for efficient search, insertion, and deletion. When the tree is balanced, these operations have a time complexity of `O(logn)`, which is way better than the one of a regular list `O(n)`.
 
+### Description 📚
+
 This application features an object constructor that creates BST's from a sorted array of numbers, and it includes a bunch of methods to modify the tree.
 
 It also provides the ability to create a list of length `n` of random numbers `> 0` & `< 100` and an array sorting utility that utilises an efficient merge sort algortithm to create constructor-ready arrays.
@@ -37,7 +39,3 @@ It also provides the ability to create a list of length `n` of random numbers `>
 - ⚖️ `isBalanced()`: Checks if the BST is balanced.
 
 - ⚖️ `rebalance()`: Rebalances an unbalanced BST.
-
-### Built With 🛠️
-
-- JS
