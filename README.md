@@ -43,3 +43,81 @@ Wrapping my head around the exact step-by-step process of recursive methods and 
 - ⚖️ `isBalanced()`: Checks if the BST is balanced.
 
 - ⚖️ `rebalance()`: Rebalances an unbalanced BST.
+
+### Usage 🖊️
+
+* Create a tree from a simple sorted array
+
+`let tree = new Tree([1, 3, 4, 5, 8])`
+
+* If we `console.log(tree)` it looks like this
+
+``` 
+Tree {
+  root: Node {
+    value: 4,
+    left: Node { value: 3, left: [Node], right: null },
+    right: Node { value: 8, left: [Node], right: null }
+  }
+} 
+```
+
+* If we call `tree.prettyPrint()` it looks like this
+
+```
+│   ┌── 8
+│   │   └── 5
+└── 4
+    └── 3
+        └── 1
+```
+
+* Let's check if it's balanced
+
+`console.log(tree.isBalanced()) // true`
+
+* Let's print each value in level order
+
+`//tree.levelOrder(print) // 4, 3, 8, 1, 5`
+
+* Let's print each value in inorder
+
+`tree.inorder(print) // 1, 3, 4, 5, 6`
+
+* Let's find the height of the tree
+
+`console.log(tree.height()) // 2`
+
+* Delete two nodes
+
+```
+tree.delete(1)
+tree.delete(4)
+```
+
+* If we use `tree.prettyPrint()` again
+
+```
+│   ┌── 8
+│   │   └── 5
+└── 3
+```
+
+* Is the tree balanced now? (Spoiler: When you delete or add nodes from a balanced BST, the tree's balance can be disturbed due to the removal of nodes and subsequent restructuring, so no)
+
+`console.log(tree.isBalanced()) // false`
+
+* Let's rebalance the tree
+
+`tree.rebalance()`
+`console.log(tree.isBalanced()) // true`
+
+
+
+
+
+
+
+
+
+
