@@ -12,7 +12,7 @@ Binary search trees (BST) are a data structure that allow for efficient search, 
 
 This application features an object constructor that creates BST's from a sorted array of numbers, and it includes a bunch of methods to modify the tree.
 
-It also provides the ability to create a list of length `n` of random numbers `> 0` & `< 100` and an array sorting utility that utilises an efficient merge sort algorithm (as developed on the (previous project)[https://github.com/nightrunner4/recursion] on TOP) to create constructor ready arrays.
+It also provides the ability to create a list of length `n` of random numbers `> 0` & `< 100` and an array sorting utility that utilises an efficient merge sort algorithm (as developed on the [previous project](https://github.com/nightrunner4/recursion) on TOP) to create constructor ready arrays.
 
 ### Challenges 😅
 
