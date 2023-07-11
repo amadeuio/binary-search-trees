@@ -1,3 +1,7 @@
+![languages](https://img.shields.io/badge/languages-js-F7DF1E)
+[![course](https://img.shields.io/badge/from-the_odin_project-d19900)](https://www.theodinproject.com/lessons/javascript-binary-search-trees)
+![license](https://img.shields.io/badge/license-MIT-blue)
+
 # Binary Search Trees 🌳
 
 ### About 📖
