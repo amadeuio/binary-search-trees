@@ -1,5 +1,5 @@
 ![languages](https://img.shields.io/badge/languages-js-F7DF1E)
-[![course](https://img.shields.io/badge/course-the_odin_project-d19900)](https://www.theodinproject.com/lessons/javascript-binary-search-trees)
+[![course](https://img.shields.io/badge/learned_on-the_odin_project-d19900)](https://www.theodinproject.com/lessons/javascript-binary-search-trees)
 ![license](https://img.shields.io/badge/license-MIT-blue)
 
 # Binary Search Trees 🌳
@@ -13,6 +13,12 @@ Binary search trees (BST) are a data structure that allow for efficient search, 
 This application features an object constructor that creates BST's from a sorted array of numbers, and it includes a bunch of methods to modify the tree.
 
 It also provides the ability to create a list of length `n` of random numbers `> 0` & `< 100` and an array sorting utility that utilises an efficient merge sort algortithm to create constructor ready arrays.
+
+### Challenges 😅
+
+Wrapping my head around the exact step-by-step process of recursive methods.
+
+Getting familiar with creating and utilizing class constructors in JavaScript.
 
 ### Methods 🔧
 
