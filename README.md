@@ -52,7 +52,7 @@ Wrapping my head around the exact step-by-step process of recursive methods and 
 
 - If we `console.log(tree)` it looks like this
 
-```
+```JavaScript
 Tree {
   root: Node {
     value: 4,
@@ -64,7 +64,7 @@ Tree {
 
 - We can use `tree.prettyPrint()` for a more intuitive representation
 
-```
+```JavaScript
 │   ┌── 8
 │   │   └── 5
 └── 4
@@ -90,14 +90,14 @@ Tree {
 
 - Let's delete two nodes
 
-```
+```JavaScript
 tree.delete(1)
 tree.delete(4)
 ```
 
 - Use `tree.prettyPrint()` again
 
-```
+```JavaScript
 │   ┌── 8
 │   │   └── 5
 └── 3
