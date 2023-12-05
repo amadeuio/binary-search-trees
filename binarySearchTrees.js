@@ -293,7 +293,7 @@ class Tree {
   }
 
   // returns the height starting from a given node
-  // defined as the number of edges (steps) in longest path from a given node to a leaf node
+  // defined as the maximum distance between the root node of the tree and the leaf node of the tree
   height(node = this.root) {
     // if the node is null, return -1 (as we are counting the number of edges)
     if (node === null) {
